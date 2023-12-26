@@ -9,7 +9,10 @@ const createWindow = () => {
   // 새로운 브라우저 창 생성
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   })
 
   mainWindow.loadFile('index.html') // index.html 로드
@@ -30,11 +33,11 @@ const createWindow = () => {
 // 몇 API의 경우는 이 이벤트 이후에만 사용가능
 app.on('ready', createWindow)
 
+app.on('activate', () => {
+  if (mainWindow === null) createWindow()
+})
+
 // 모든 창이 닫히면 애플리케이션 종료
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
-
-app.on('activate', () => {
-  if (mainWindow === null) createWindow()
-})
