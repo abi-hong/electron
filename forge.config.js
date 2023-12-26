@@ -11,6 +11,7 @@ module.exports = {
           owner: 'abi-hong',
           name: 'electron'
         },
+        authToken: process.env.GITHUB_TOKEN,
         prerelease: false,
         draft: true
       }
