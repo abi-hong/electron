@@ -1,0 +1,15 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "first electron repo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "test"
+  },
+  "author": "Heesoo Hong",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.0"
+  }
+}
